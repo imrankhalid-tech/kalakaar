@@ -1,0 +1,449 @@
+﻿@model Kalakaar.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseCategory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CourseCategory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Avail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Avail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Discription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Discription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image1Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image1Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image2Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image2Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgBanner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgBanner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Instructor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Instructor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfLectures)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoOfLectures)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fees)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fees)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CourseId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<br />*@
+<!-- catg header banner section -->
+<section id="aa-catg-head-banner">
+    <img src="~/img/@Html.DisplayFor(model => model.ImgBanner)" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+        <div class="container">
+            <div class="aa-catg-head-banner-content">
+                <h2>@Html.DisplayFor(model => model.CourseName)</h2>
+                <!-- <ol class="breadcrumb">
+                  <li><a href="index.html">Home</a></li>
+                  <li class="active">programdetails</li>
+                </ol> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / catg header banner section -->
+<!-- Cart view section -->
+<section id="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="checkout-area">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkout-left">
+                                    <div class="panel-group" id="accordion">
+                                        <!-- Coupon section -->
+                                        <div class="panel panel-default aa-checkout-coupon">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                        Course Discription
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <p>In this course, you will be able to learn from the basics to expert level in this field and you will be given professional training by the trained teachers which will help you to get easily the best job in the field of @Html.DisplayFor(model => model.CourseName)</p>
+                                                    <!-- <input type="text" placeholder="Coupon Code" class="aa-coupon-code">
+                <input type="submit" value="Apply Coupon" class="aa-browse-btn"> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Login section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                        Objectives
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>This course will not only make you proficient in the best way but also you can easily get a respectable and excellent job after doing this course. At the same time, you will be able to earn money online according to your current needs.</p>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Learning section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                                        Learning Outcomes
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>You will be technical hand, up-to-date as per field’s requirements, you will get job easily and able to work as freelancer.</p>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Who can join? section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                                        Who can join?
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>In this field, we would like to welcome anyone, but those who are really interested in this field or who want to work in this field as a profession, will get more love and respect. And this course will be the best for him with respect to the future.</p>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Application Process section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                                        Application Process
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>Form Filling with Required documents, </p>
+                                                    <ol>
+                                                        <li>3 Passport size pics</li>
+                                                        <li>Copies of all academic certiicates</li>
+                                                        <li>CNIC Copy</li>
+                                                    </ol>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Features section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                                                        Salient & Features
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseSix" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ol>
+                                                        <li>Lifetime Guideline</li>
+                                                        <li>Online + Physical Classes</li>
+                                                        <li> Multiple Certifications</li>
+                                                        <li>Internship</li>
+                                                        <li>Refer For Job</li>
+                                                    </ol>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Instructor section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                                                        About Instructor
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseSeven" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>All our teachers are highly skilled people in their respective fields who have vast experience in their field. Our teachers also have work experience with national and international companies. And they will facilitate students not only during course tenure but also after the completion of course whenever student needs any kind of guidelines.</p>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Criteria section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                                                        Completing Criteria
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseEight" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>80% attendance is required to obtain a certificate. You will also need to attempt all the exercises given during the course and you will have to give an exam at the end of the course in which you have to get the 80% marks.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Payment section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapsefee">
+                                                        Fee and Payment
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapsefee" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>This course is as important as any other degree, because if you take this course as a complete syllabus, you will not only be a professional in it, but you will also be able to get a job without any hurdle. Therefore, it would not be correct to compare the course offered in our institute with the fee for any course offered in other institutes.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Duration section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseDur">
+                                                        Duration of Course
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseDur" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>All our course’s duration is from 1 Month to 6 Month. According to our schedule, Classes are held two days or three days a week. And classes timings are available in morning, afternoon and evening shifts.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Certification section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                                                        Perks & Certification
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse9" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>Students will be offered a one-month internship if they complete the course with hard work. After this internship, student will also get work experience certificate.</p>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Job Opportunities section -->
+                                        <div class="panel panel-default aa-checkout-login">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+                                                        Job Opportunities
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse10" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>By completing this course, you can definitely get national and international jobs. You can also work through freelancing; Project based and get online earning from other platforms.</p>
+                                                    <!-- <input type="text" placeholder="Username or email">
+                <input type="password" placeholder="Password">
+                <button type="submit" class="aa-browse-btn">Login</button>
+                <label for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                <p class="aa-lost-password"><a href="#">Lost your password?</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="checkout-right">
+                                    <h4>Summary</h4>
+                                    <div class="aa-order-summary-area">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                @*<tr>
+                                                    <th>Fee</th>
+                                                    <th>PKR 5500.00</th>
+                                                </tr>*@
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> <strong>Instructor</strong></td>
+                                                    <td>@Html.DisplayFor(model => model.Instructor)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong> course duration</strong></td>
+                                                    <td>1-6 Months</td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <strong>Lectures</strong></td>
+                                                    <td>2-3 Days/Week</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Language </strong></td>
+                                                    <td>English / Urdu</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Starting Date </strong></td>
+                                                    <td>@Html.DisplayFor(model => model.StartDate.Date)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong> Enroll Deadline </strong></td>
+                                                    <td>@Html.DisplayFor(model => model.EndDate.Date)</td>
+                                                </tr>
+                                                @*<tr>
+                                                    <td colspan="2">
+                                                        <div class="aa-payment-method">
+                                                            <input type="submit" value="Enroll Now" class="aa-browse-btn">
+                                                        </div>
+                                                    </td>
+                                                </tr>*@
+                                            </tbody>
+                                            <!-- <tfoot>
+                                              <tr>
+                                                <th>Subtotal</th>
+                                                <td>$750</td>
+                                              </tr>
+                                               <tr>
+                                                <th>Tax</th>
+                                                <td>$35</td>
+                                              </tr>
+                                               <tr>
+                                                <th>Total</th>
+                                                <td>$785</td>
+                                              </tr>
+
+                                            </tfoot> -->
+                                        </table>
+                                    </div>
+                                    <!-- <h4>Payment Method</h4>
+                                    <div class="aa-payment-method">
+                                      <label for="cashdelivery"><input type="radio" id="cashdelivery" name="optionsRadios"> Cash on Delivery </label>
+                                      <label for="paypal"><input type="radio" id="paypal" name="optionsRadios" checked> Via Paypal </label>
+                                      <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark">
+                                      <input type="submit" value="Enroll Now" class="aa-browse-btn">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Cart view section -->

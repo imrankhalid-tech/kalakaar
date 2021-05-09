@@ -1,0 +1,99 @@
+﻿@model Kalakaar.Models.Course
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="margin-left: 5%">
+    <h2>Create</h2>
+
+    <h4>Course</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CourseCategory" class="control-label"></label>
+                    <select asp-for="CourseCategory" class="form-control">
+                        <option value="PROFESSIONAL DESIGNING">PROFESSIONAL DESIGNING</option>
+                        <option value="ADMINISTRATIVE & MANAGEMENT">ADMINISTRATIVE & MANAGEMENT</option>
+                    </select>
+                    <span asp-validation-for="CourseCategory" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseName" class="control-label"></label>
+                    <input asp-for="CourseName" class="form-control" />
+                    <span asp-validation-for="CourseName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Avail" class="control-label"></label>
+                    <input asp-for="Avail" class="form-control" />
+                    <span asp-validation-for="Avail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Discription" class="control-label"></label>
+                    <input asp-for="Discription" class="form-control" />
+                    <span asp-validation-for="Discription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image1Url" class="control-label"></label>
+                    <input asp-for="Image1Url" class="form-control" />
+                    <span asp-validation-for="Image1Url" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image2Url" class="control-label"></label>
+                    <input asp-for="Image2Url" class="form-control" />
+                    <span asp-validation-for="Image2Url" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImgBanner" class="control-label"></label>
+                    <input asp-for="ImgBanner" class="form-control" />
+                    <span asp-validation-for="ImgBanner" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Instructor" class="control-label"></label>
+                    <input asp-for="Instructor" class="form-control" />
+                    <span asp-validation-for="Instructor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NoOfLectures" class="control-label"></label>
+                    <input asp-for="NoOfLectures" class="form-control" />
+                    <span asp-validation-for="NoOfLectures" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label"></label>
+                    <input asp-for="EndDate" class="form-control" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fees" class="control-label"></label>
+                    <input asp-for="Fees" class="form-control" />
+                    <span asp-validation-for="Fees" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Duration" class="control-label"></label>
+                    <input asp-for="Duration" class="form-control" />
+                    <span asp-validation-for="Duration" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>

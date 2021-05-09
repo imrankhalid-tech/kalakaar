@@ -1,0 +1,221 @@
+﻿@model IEnumerable<Kalakaar.Models.Shop>
+@using Microsoft.AspNetCore.Identity
+@using Kalakaar.Areas.Identity.Data;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "BabiesBabas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (UserManager.GetUserName(User) == "admin@kalakaar.com")
+    {
+
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ShopType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductCategory)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Avail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Discription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image1Url)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image2Url)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImgBanner)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Brand)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Where(i => i.ShopType.ToLower() == "babiesbabas"))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ShopType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Avail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Discription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image1Url)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image2Url)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImgBanner)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+
+
+<!-- Products section -->
+<section id="aa-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="aa-product-area">
+                        <div class="aa-product-inner">
+                            <!-- start prduct navigation -->
+                            @*<ul class="nav nav-tabs aa-products-tab">
+                                    <li class="active"><a href="#men" data-toggle="tab">Dresses</a></li>
+                                </ul>*@
+                            <!-- Tab panes --><br />
+                            <div class="tab-content">
+                                <!-- Start men product category -->
+                                <div class="tab-pane fade in active" id="men">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in Model.Where(i => i.ShopType.ToLower() == "babiesbabas"))
+                                        {
+                                        <li>
+                                            <figure>
+                                                <a class="aa-product-img" href="#"><img src="~/img/@item.Image1Url" alt="polo shirt img"></a>
+                                                <a class="aa-add-card-btn" href="#" data-toggle2="tooltip" data-placement="top" data-toggle="modal" data-target="#quick-view-modal-@item.ProductId">Quick View</a>
+
+                                                <figcaption>
+                                                    <h4 class="aa-product-title"><a href="#"><b>@item.ProductName</b></a></h4>
+
+                                                </figcaption>
+                                            </figure>
+                                            <div class="aa-product-hvr-content">
+                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                                            </div>
+                                        </li>
+                                        }
+                                    </ul>
+
+                                </div>
+                                <!-- / men product category -->
+
+                            </div>
+
+                            @foreach (var item in Model.Where(i => i.ShopType.ToLower() == "babiesbabas"))
+                            {
+                                <!-- quick view modal -->
+                                <div class="modal fade quick-view-modal" id="quick-view-modal-@item.ProductId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <div class="row">
+                                                    <!-- Modal view slider -->
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="aa-product-view-slider">
+                                                            <div class="simpleLens-gallery-container" id="demo-1">
+                                                                <div class="simpleLens-container">
+                                                                    <div class="simpleLens-big-image-container">
+                                                                        <a class="simpleLens-lens-image" data-lens-image="img/shop1011.jpg">
+                                                                            <img src="~/img/@item.Image1Url">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Modal view content -->
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="aa-product-view-content">
+                                                            <h3>@item.ProductName</h3>
+                                                            <div class="aa-price-block">
+                                                                <span class="aa-product-view-price">Price: @item.Price</span>
+                                                                <p class="aa-product-avilability">Avilability: <span>@item.Avail</span></p>
+                                                            </div>
+                                                            <p>@item.Discription</p>
+                                                            <h4>Size</h4>
+                                                            <div class="aa-prod-view-size">
+                                                                <a href="#">S</a>
+                                                                <a href="#">M</a>
+                                                                <a href="#">L</a>
+                                                                <a href="#">XL</a>
+                                                            </div>
+                                                            <div class="aa-prod-quantity">
+                                                                <form action="">
+                                                                    <select name="" id="">
+                                                                        <option value="0" selected="selected">1</option>
+                                                                        <option value="1">2</option>
+                                                                        <option value="2">3</option>
+                                                                        <option value="3">4</option>
+                                                                        <option value="4">5</option>
+                                                                        <option value="5">6</option>
+                                                                    </select>
+                                                                </form>
+                                                                @*<p class="aa-prod-category">
+                                                                        Category: <a href="#">Polo T-Shirt</a>
+                                                                    </p>*@
+                                                            </div>
+                                                            <div class="aa-prod-view-bottom">
+                                                                <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                                                <!-- <a href="#" class="aa-add-to-cart-btn">View Details</a> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- / quick view modal -->
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Products section -->

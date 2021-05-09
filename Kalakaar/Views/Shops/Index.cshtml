@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Kalakaar.Models.Shop>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image1Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image2Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgBanner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image1Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image2Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgBanner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

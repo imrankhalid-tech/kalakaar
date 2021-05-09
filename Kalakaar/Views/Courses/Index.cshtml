@@ -1,0 +1,239 @@
+﻿@model IEnumerable<Kalakaar.Models.Course>
+@using Microsoft.AspNetCore.Identity
+@using Kalakaar.Areas.Identity.Data;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+        @if (UserManager.GetUserName(User)=="admin@kalakaar.com") {
+            <h2>Index</h2>
+
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CourseCategory)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CourseName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Avail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Discription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image1Url)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image2Url)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImgBanner)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Instructor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NoOfLectures)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fees)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duration)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourseCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourseName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Avail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Discription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image1Url)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image2Url)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ImgBanner)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Instructor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NoOfLectures)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fees)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duration)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.CourseId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+            } 
+        }
+
+<!-- Products section -->
+<section id="aa-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="aa-product-area">
+                        <div class="aa-product-inner">
+                            <!-- start prduct navigation -->
+                            <ul class="nav nav-tabs aa-products-tab">
+                                <li class="active"><a href="#men" data-toggle="tab"><b>Professional Designing</b></a></li>
+                                <li><a href="#electronics" data-toggle="tab">Administrative & Management</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!-- Start men product category -->
+                                <div class="tab-pane fade in active" id="men">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in Model.Where(i => i.CourseCategory.ToUpper() == "PROFESSIONAL DESIGNING"))
+                                        {
+                                            <li>
+                                                <figure>
+                                                    <a class="aa-product-img" href="#"><img src="~/img/@Html.DisplayFor(modelItem => item.Image1Url)" alt="polo shirt img"></a>
+                                                    <a class="aa-add-card-btn" href="#" data-toggle2="tooltip" data-placement="top" data-toggle="modal" data-target="#quick-view-modal-@item.CourseId">Quick View</a>
+
+                                                    <figcaption>
+                                                        <h4 class="aa-product-title"><a href="#"><b>@Html.DisplayFor(modelItem => item.CourseName)</b></a></h4>
+
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                            <!-- start single product item -->
+                                        }
+                                    </ul>
+
+                                </div>
+                                <!-- / men product category -->
+                                <!-- start electronic product category -->
+                                <div class="tab-pane fade" id="electronics">
+                                    <ul class="aa-product-catg">
+                                        <!-- start single product item -->
+                                        @foreach (var item in Model.Where(i => i.CourseCategory.ToUpper() == "ADMINISTRATIVE & MANAGEMENT"))
+                                        {
+                                            <li>
+                                                <figure>
+                                                    <a class="aa-product-img" href="#"><img src="~/img/@Html.DisplayFor(modelItem => item.Image1Url)" alt="polo shirt img"></a>
+                                                    <a class="aa-add-card-btn" href="#" data-toggle2="tooltip" data-placement="top" data-toggle="modal" data-target="#quick-view-modal-@item.CourseId">Quick View</a>
+
+                                                    <figcaption>
+                                                        <h4 class="aa-product-title"><a href="#">@Html.DisplayFor(modelItem => item.CourseName)</a></h4>
+
+                                                    </figcaption>
+                                                </figure>
+                                            </li>
+                                        }
+                                    </ul>
+
+                                </div>
+                                <!-- / electronic product category -->
+                            </div>
+                            @foreach (var item in Model)
+                            {
+                                <!-- quick view modal -->
+                                <div class="modal fade quick-view-modal" id="quick-view-modal-@item.CourseId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <div class="row">
+                                                    <!-- Modal view slider -->
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="aa-product-view-slider">
+                                                            <div class="simpleLens-gallery-container" id="demo-1">
+                                                                <div class="simpleLens-container">
+                                                                    <div class="simpleLens-big-image-container">
+                                                                        <a class="simpleLens-lens-image" data-lens-image="img/view-slider/large/polo-shirt-1.png">
+                                                                            <img src="~/img/@Html.DisplayFor(modelItem => item.Image1Url)">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Modal view content -->
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="aa-product-view-content">
+                                                            <h3>@Html.DisplayFor(modelItem => item.CourseName)</h3>
+                                                            <div class="aa-price-block">
+                                                                <span class="aa-product-view-price"><br /></span>
+                                                                <p class="aa-product-avilability">Avilability: <span>@Html.DisplayFor(modelItem => item.Avail)</span></p>
+                                                            </div>
+                                                            <p>@Html.DisplayFor(modelItem => item.Discription)</p>
+                                                            <br><br>
+                                                            <div class="aa-prod-view-bottom">
+                                                                <!-- <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a> -->
+                                                                <a class="aa-add-to-cart-btn" asp-action="Details" asp-route-id="@item.CourseId">View Details</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- / quick view modal -->
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Products section -->

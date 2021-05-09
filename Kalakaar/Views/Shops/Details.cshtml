@@ -1,0 +1,79 @@
+﻿@model Kalakaar.Models.Shop
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShopType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCategory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductCategory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Avail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Avail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Discription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Discription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image1Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image1Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image2Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image2Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgBanner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgBanner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
